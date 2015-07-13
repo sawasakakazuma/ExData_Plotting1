@@ -1,6 +1,8 @@
 x <- read.table("household_power_consumption.txt", sep=";", header=TRUE)
 x$Date <- as.Date(x$Date, format="%d/%m/%Y")
-x[,3] <- as.numeric(levels(x[,3]))[x[,3]]
+x$Global_active_power <- as.numeric(levels(x$Global_active_power))[x$Global_active_power]
+x$Sub_metering_1 <- as.numeric(levels(x$Sub_metering_1))[x$Sub_metering_1]
+x$Sub_metering_2 <- as.numeric(levels(x$Sub_metering_2))[x$Sub_metering_2]
 x$Voltage <- as.numeric((levels(x$Voltage)))[x$Voltage]
 x$Global_reactive_power <- as.numeric((levels(x$Global_reactive_power)))[x$Global_reactive_power]
 y <- x[(x$Date=="2007-02-01") | (x$Date=="2007-02-02"),]
